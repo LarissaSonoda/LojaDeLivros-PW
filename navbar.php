@@ -1,3 +1,10 @@
+<link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Caesar Dressing' rel='stylesheet'>
+	<style>
+		nav{
+			font-family: 'Bebas-Neue';
+		}
+	</style>
 <nav class="navbar navbar-inverse bg-dark">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -11,7 +18,7 @@
       <a class="navbar-brand" href="#" style="font-family: 'Caesar Dressing';font-size: 22px; color: #FFD700;">Half Blood Books</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="font-family: 'Bebas Neue'; font-size: 22px;">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="lanc.php">Lançamentos</a></li>
@@ -34,7 +41,28 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Contato</a></li>
-		<li style="font-family:'Bebas Neue';font-size: 22px;"><a href="formlogon.php"><span class="glyphicon glyphicon-user">  Minha Conta</a></li>
+		<?php if(empty($_SESSION['ID'])){?>
+		<li class="formulario">
+          <a href="formlogon.php"><span class="glyphicon glyphicon-user"></span> Logon</a>
+		</li>
+		<?php } else{
+			
+			if($_SESSION['STATUS']!=1){
+			$consulta_usuario = $cn->query("select nm_usuario from tbl_usuario where cd_usuario = '$_SESSION[ID]'");
+			$exibe_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC);
+		?>
+		
+		<li>
+			<a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $exibe_usuario['nm_usuario'];?></a>
+		</li>
+		<li>
+			<a href="sair.php"><span class="glyphicon glyphicon-log-out"></span> Sair</a>
+		</li>
+		<?php } else{ ?>
+			<li><a href="adm.php"><button class="btn btn-sm btn-danger">Administrador</button></a></li>
+			<li><a href="sair.php"><span class="glyphicon glyphicon-log-out"> Sair</a></li>
+		<?php } } ?>
+		
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

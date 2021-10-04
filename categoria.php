@@ -36,10 +36,10 @@
 </head>
 <body>
 	<?php 
-	include 'navbar.php';
-		include 'cabecalho.html';
-		include 'conexao.php';
-		
+	session_start();
+	include 'conexao.php';
+	include 'nav.php';
+	include 'cabecalho.html';
 		$cat = $_GET['cat'];
 		$consulta = $cn->query("select nm_livro,vl_preco,ds_capa, qt_estoque from vw_livro where ds_categoria = '$cat';");
 	?> 

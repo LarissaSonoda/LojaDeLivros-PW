@@ -14,12 +14,18 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
+<link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Caesar Dressing' rel='stylesheet'>
 	
 <style>
 
 .navbar{
 	margin-bottom: 0;
 }	
+
+		body {
+			font-family: 'Bebas Neue';font-size: 22px;
+		}
 </style>
 </head>
 
@@ -43,13 +49,13 @@
 					<div class="form-group">
 				
 						<label for="email">Email</label>
-						<input name="txtemail" type="email" class="form-control" required id="email">
+						<input name="email" type="email" class="form-control" required id="email">
 					</div>
 				
 				<div class="form-group">
 				
 						<label for="senha">Senha</label>
-						<input name="txtsenha" type="password" class="form-control" required id="senha">
+						<input name="senha" type="password" class="form-control" required id="senha">
 				</div>
 				
 							
@@ -59,11 +65,13 @@
 					
 				</button>
 				<br>
+				
 				<button type="submit" class="btn btn-lg btn-link">
-					
+					<a href="formusuario.php">
 					Ainda não sou cadastrado
-					
+					</a>
 				</button>
+				
 				</form>
 			</div>
 		</div>
