@@ -33,19 +33,19 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left" name="frmpesquisa" method="get" action="busca.php" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" name="txtBuscar">
         </div>
         <button type="submit" class="btn btn-default">Pesquisar</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Contato</a></li>
-		<?php if(empty($_SESSION['ID'])){?>
+		<?php if(empty($_SESSION['ID'])){?> <!-- se estiver vazio a sessão id-->
 		<li class="formulario">
           <a href="formlogon.php"><span class="glyphicon glyphicon-user"></span> Logon</a>
 		</li>
-		<?php } else{
+		<?php } else{ //se estiver vazio a sessão id
 			
 			if($_SESSION['STATUS']!=1){
 			$consulta_usuario = $cn->query("select nm_usuario from tbl_usuario where cd_usuario = '$_SESSION[ID]'");

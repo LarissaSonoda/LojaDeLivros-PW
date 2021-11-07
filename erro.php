@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Minha Loja - Logon de usuário</title>
-	
+<title>Half Blood Books - Login</title>
+	<link rel="sourtout icon" href="imagens/logo.ico"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	
 <!-- Latest compiled and minified CSS -->

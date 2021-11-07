@@ -314,6 +314,25 @@ as select
 
 select * from vw_livro;
 
+use db_loja;
 
+select * from tbl_usuario;
+create table tbl_usuario(
+	cd_usuario int primary key auto_increment,
+    nm_usuario varchar(80) not null,
+    ds_email varchar(80) not null,
+    ds_senha varchar(6) not null,
+    ds_status boolean not null,
+    ds_endereco varchar(80) not null,
+    ds_cidade varchar(30) not null,
+    no_cep char(9) not null
+) default charset utf8;
+
+insert into tbl_usuario values
+(default, 'Larissa Sonoda', 'lari@email.com', '123456', 1, 'Rua 1234', 'São Paulo', '98765-321'),
+(default, 'Ana Clara', 'aninha@gmail.com', '098765', 0, 'Rua 1234', 'São Paulo', '98765-321'),
+(default, 'Gustavo Pereira', 'gus@gmail.com', '543218', 1, 'Rua 28', 'Santos', '09877-456');
+
+select * from tbl_usuario;
  CREATE USER 'loja'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
  GRANT ALL PRIVILEGES ON db_loja.* TO 'loja'@'localhost' WITH GRANT OPTION;

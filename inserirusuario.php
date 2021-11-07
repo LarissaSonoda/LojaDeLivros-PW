@@ -1,27 +1,25 @@
 <?php
-	include 'conexao.php';
-	
-	$nome = $_POST['txtnome'];
-	$email = $_POST['txtemail'];
-	$senha = $_POST['txtsenha'];
-	$end = $_POST['txtendereco'];
-	$cidade = $_POST['txtcidade'];
-	$cep = $_POST['txtcep'];
-	
-	$consulta = $cn->query("select ds_email from tbl_usuario where ds_email='$email'");
-	$exibe= $consulta ->fetch(PDO::FETCH_ASSOC);
-	
-	IF($consulta->rowCount() == 1){
-		header('location:erro1.php');
-	}
-	else{
 
-		$incluir = $cn->query("insert into tbl_usuario (cd_usuario,nm_usuario, ds_email, ds_senha, ds_status, ds_endereco, ds_cidade, no_cep)
-		values
-		(default, '$nome', '$email', '$senha','0', '$end', '$cidade', '$cep')
-		");
-		header('location:ok.php');
-		}
-	
+include "conexao.php";
 
+$user = $_POST["txtnome"];
+$email = $_POST["txtemail"];
+$senha = $_POST["txtsenha"];
+$ende = $_POST["txtendereco"];
+$cidade = $_POST["txtcidade"];
+$cep = $_POST["txtcep"];
+
+
+$find = $cn->query("select * from tbl_usuario where ds_email = '$email';");
+$show = $find->fetch(PDO::FETCH_ASSOC);
+
+if($find->rowCount() >= 1)
+{
+	header("location:erro1.php");
+}
+else
+{
+	$insert = $cn->query("insert into tbl_usuario values (default, '$user', '$email', '$senha', 0, '$ende', '$cidade','$cep')");
+	header("location:formusuario.php");
+}
 ?>

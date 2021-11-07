@@ -34,7 +34,7 @@
 <script>
 	
 $(document).ready(function(){
-    $("#cep").mask("00 000-000");
+    $("#cep").mask("00000-000");
 });
 	
 	
@@ -108,9 +108,9 @@ $(document).ready(function(){
 				
 							
 				<button type="submit" class="btn btn-lg btn-default">
-					
+					<a href="formlogon.php">
 					<span class="glyphicon glyphicon-pencil"> Cadastrar</span>
-					
+					</a>
 				</button>
 				
 				</form>

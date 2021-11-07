@@ -1,7 +1,8 @@
 <! DOCTYPE HTML>
 <html lang="pt-br"> 
 <head>
-<title>Minha Loja</title>
+<title>Half Blood Books - Login</title>
+<link rel="sourtout icon" href="imagens/logo.ico"/>
 <meta charset="utf-8"> 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,13 +66,12 @@
 					
 				</button>
 				<br>
-				
-				<button type="submit" class="btn btn-lg btn-link">
-					<a href="formusuario.php">
+				<a href="formusuario.php">
+				<!--button type="submit" class="btn btn-lg btn-link"-->
 					Ainda não sou cadastrado
-					</a>
-				</button>
-				
+					
+				<!--/button-->
+				</a>
 				</form>
 			</div>
 		</div>

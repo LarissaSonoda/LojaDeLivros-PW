@@ -1,7 +1,8 @@
  <! DOCTYPE HTML>
 <html lang="pt-br"> <!-- indicando a linguagem que iremos usar no codigo html -->
 <head>
-	<title>Minha Loja</title>
+	<title>Half Blood Books</title>
+	<link rel="sourtout icon" href="imagens/logo.ico"/>
 	<meta charset="utf-8"> <!-- indicando o sistema de caractere utf-8 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--
@@ -42,7 +43,7 @@
 		include 'navbar.php';
 		include 'cabecalho.html';
 		
-		$consulta = $cn->query('select nm_livro,vl_preco,ds_capa, qt_estoque from vw_livro;');
+		$consulta = $cn->query('select cd_livro, nm_livro,vl_preco,ds_capa, qt_estoque from vw_livro;');
 	?> 
 	
 	<div class="container-fluid">
@@ -50,14 +51,16 @@
 		<?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){		?>
 			<div class="col-sm-3">
 				
-				<img src="imagens/<?php echo $exibe['ds_capa'];?>.jpg" class="img-responsive" style="width: 100%; height: 480px;">
+				<img src="imagens/<?php echo $exibe['ds_capa'];?>" class="img-responsive" style="width: 100%; height: 480px;">
 				<div><h3><?php echo mb_strimwidth($exibe['nm_livro'],0,30,'...');?></h3></div>
 				<div><h4>R$ <?php echo number_format($exibe['vl_preco'],2,',','.');?></h4></div>
 				
 				<div class="text-center" style="font-family: 'Bebas Neue'; margin-top: 5 px; margin-bottom: 5px;">
+					<a href="detalhes.php?cd=<?php echo $exibe['cd_livro'];?>">
 					<button class="btn btn-lg btn-block btn-warning">
 						<span class="glyphicon glyphicon-info-sign"> Detalhes</span>
 					</button>
+					</a>
 				</div>
 				
 				<div class="text-center" style="font-family: 'Bebas Neue'; margin-top: 5 px; margin-bottom: 5px;">
